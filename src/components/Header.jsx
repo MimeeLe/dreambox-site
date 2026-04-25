@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom'
 
+const instagramUrl = 'https://www.instagram.com/dreambox_fr/'
+
 const navigationLinks = [
   { label: 'Accueil', path: '/' },
   { label: 'Collections', path: '/collections' },
@@ -27,6 +29,14 @@ function Header() {
               {link.label}
             </NavLink>
           ))}
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="instagram-cta"
+          >
+            Instagram
+          </a>
         </nav>
       </div>
     </header>

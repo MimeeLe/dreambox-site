@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+const instagramUrl = 'https://www.instagram.com/dreambox_fr/'
+
 function Footer() {
   return (
     <footer className="site-footer">
@@ -15,6 +17,14 @@ function Footer() {
           <Link to="/collections">Collections</Link>
           <Link to="/personnalisation">Personnalisation</Link>
           <Link to="/creer-ma-box">Créer ma box</Link>
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="footer-instagram-cta"
+          >
+            Instagram
+          </a>
         </nav>
       </div>
     </footer>
