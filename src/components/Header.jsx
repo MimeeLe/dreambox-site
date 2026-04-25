@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import dreamboxLogo from '../assets/logo-dreambox.jpg'
 
 const instagramUrl = 'https://www.instagram.com/dreambox_fr/'
 
@@ -15,7 +16,13 @@ function Header() {
     <header className="site-header">
       <div className="container header-content">
         <NavLink to="/" className="brand-name">
-          Dreambox
+          <img
+            src={dreamboxLogo}
+            alt="Dreambox"
+            width="784"
+            height="1168"
+            className="brand-logo"
+          />
         </NavLink>
 
         <nav className="main-nav" aria-label="Navigation principale">
