@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import aproposImage from '../assets/apropos-image.png'
+import aproposImage from '../assets/apropos-image-optimized.jpg'
 import Seo from '../components/Seo'
 
 const values = [
@@ -17,13 +17,22 @@ const values = [
   },
 ]
 
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'À propos de Dreambox',
+  url: 'https://dreambox-blindbox.com/a-propos',
+  description: 'Présentation de Dreambox et de sa vision de la box cadeau personnalisée.',
+}
+
 function About() {
   return (
     <main className="page-section about-page">
       <Seo
-        title="À propos de Dreambox"
-        description="Dreambox imagine des box surprises personnalisées pour offrir un cadeau original, attentif et prêt à offrir selon chaque occasion."
+        title="À propos de Dreambox | L’art de la box cadeau personnalisée"
+        description="Découvrez l’histoire de Dreambox, une marque pensée pour transformer chaque cadeau en surprise personnalisée, émotionnelle et mémorable."
         path="/a-propos"
+        schema={aboutSchema}
       />
 
       <section className="container about-hero">
@@ -72,6 +81,39 @@ function About() {
             message qui correspondent le mieux à la personne qui va la recevoir.
           </p>
         </div>
+      </section>
+
+      <section className="container about-editorial-grid">
+        <article>
+          <p className="section-kicker">Notre vision</p>
+          <h2>Notre vision du cadeau</h2>
+          <p>
+            Un cadeau réussi ne dépend pas seulement de sa valeur. Il tient
+            surtout à l’attention portée à la personne, au contexte et au petit
+            détail qui montre que l’on a vraiment pensé à elle.
+          </p>
+        </article>
+
+        <article>
+          <p className="section-kicker">Pourquoi Dreambox existe</p>
+          <h2>Rendre le cadeau plus simple, mais plus personnel</h2>
+          <p>
+            Dreambox existe pour aider celles et ceux qui veulent offrir mieux,
+            même lorsqu’ils n’ont pas encore une idée précise. La marque
+            transforme quelques informations en une surprise cohérente, prête à
+            offrir et adaptée au moment.
+          </p>
+        </article>
+
+        <article>
+          <p className="section-kicker">Plus qu’un coffret</p>
+          <h2>Une attention plus personnelle qu’un coffret classique</h2>
+          <p>
+            Un coffret standard peut être pratique, mais il raconte rarement une
+            histoire. Une Dreambox cherche à créer une attention plus sensible,
+            pensée autour de la personne qui va la découvrir.
+          </p>
+        </article>
       </section>
 
       <section className="container about-values">

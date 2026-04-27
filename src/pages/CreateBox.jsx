@@ -1,5 +1,50 @@
 import Seo from '../components/Seo'
 
+const formFaq = [
+  {
+    question: 'Que se passe-t-il après l’envoi du formulaire ?',
+    answer:
+      'Dreambox relit votre demande, précise les détails si nécessaire et revient vers vous avant de préparer la box.',
+  },
+  {
+    question: 'Dois-je connaître exactement le contenu de la box ?',
+    answer:
+      'Non. Vous pouvez donner une direction générale et garder une part de surprise dans la sélection finale.',
+  },
+  {
+    question: 'Puis-je préciser un budget ?',
+    answer:
+      'Oui. Le budget indicatif aide à imaginer une box adaptée à votre demande et à l’occasion.',
+  },
+  {
+    question: 'Comment indiquer les goûts de la personne ?',
+    answer:
+      'Ajoutez ses couleurs préférées, ses passions, son style, ce qu’elle aime recevoir et les détails à éviter.',
+  },
+]
+
+const createBoxSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Créer ma box Dreambox',
+    url: 'https://dreambox-blindbox.com/creer-ma-box',
+    description: 'Formulaire pour créer une box cadeau personnalisée Dreambox.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: formFaq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+]
+
 function CreateBox() {
   function handleSubmit(event) {
     event.preventDefault()
@@ -8,9 +53,10 @@ function CreateBox() {
   return (
     <main className="page-section create-box-page">
       <Seo
-        title="Créer ma box cadeau personnalisée"
-        description="Remplissez le formulaire Dreambox pour créer une box cadeau personnalisée selon l’occasion, la personne à gâter, le budget et l’ambiance souhaitée."
+        title="Créer ma box cadeau personnalisée | Dreambox"
+        description="Remplissez le formulaire Dreambox pour créer une box cadeau personnalisée selon l’occasion, la personne à gâter, le style souhaité et votre budget."
         path="/creer-ma-box"
+        schema={createBoxSchema}
       />
 
       <div className="container create-box-layout">
@@ -22,6 +68,11 @@ function CreateBox() {
             occasion, personne à gâter, budget, goûts, message ou ambiance
             souhaitée. Dreambox reviendra ensuite vers vous pour préciser la
             demande avant de préparer votre box cadeau.
+          </p>
+          <p>
+            Quelques informations suffisent pour imaginer une box adaptée à la
+            personne que vous souhaitez gâter. Vous pouvez être très précis ou
+            laisser plus de liberté à Dreambox.
           </p>
         </section>
 
@@ -44,6 +95,7 @@ function CreateBox() {
                 name="occasion"
                 placeholder="Anniversaire, mariage, remerciement, Saint-Valentin..."
               />
+              <small>Indiquez le contexte pour guider l’ambiance de la box.</small>
             </label>
 
             <label className="form-field">
@@ -82,6 +134,7 @@ function CreateBox() {
                 <option value="sur-mesure">Sur-mesure</option>
                 <option value="indecise">Je ne sais pas encore</option>
               </select>
+              <small>Choisissez un univers ou laissez Dreambox proposer une direction.</small>
             </label>
 
             <label className="form-field">
@@ -96,6 +149,7 @@ function CreateBox() {
             <label className="form-field">
               <span>Budget indicatif</span>
               <input type="text" name="budget" placeholder="Exemple : 40 à 60 €" />
+              <small>Une fourchette suffit pour adapter la sélection.</small>
             </label>
 
             <label className="form-field">
@@ -111,6 +165,7 @@ function CreateBox() {
               rows="4"
               placeholder="Le message que vous aimeriez ajouter dans la box cadeau..."
             />
+            <small>Vous pouvez écrire un message complet ou seulement l’intention à transmettre.</small>
           </label>
 
           <label className="form-field full-width">
@@ -120,6 +175,7 @@ function CreateBox() {
               rows="5"
               placeholder="Ses goûts, couleurs préférées, allergies, choses à éviter, passions, souvenirs à rappeler..."
             />
+            <small>Ajoutez tout ce qui peut rendre la box plus juste et plus personnelle.</small>
           </label>
 
           <button type="submit" className="button-primary form-submit">
@@ -133,6 +189,22 @@ function CreateBox() {
           </p>
         </form>
       </div>
+
+      <section className="container form-faq-section faq-section">
+        <div className="section-heading centered">
+          <p className="section-kicker">Avant d’envoyer</p>
+          <h2>Questions fréquentes sur la création de votre box</h2>
+        </div>
+
+        <div className="faq-list">
+          {formFaq.map((item) => (
+            <article key={item.question}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
     </main>
   )
 }

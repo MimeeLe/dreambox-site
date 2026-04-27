@@ -21,6 +21,7 @@ function Header() {
             alt="Dreambox"
             width="784"
             height="1168"
+            decoding="async"
             className="brand-logo"
           />
         </NavLink>

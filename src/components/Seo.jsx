@@ -1,87 +1,55 @@
-import { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const siteName = 'Dreambox'
+const siteUrl = 'https://dreambox-blindbox.com'
 const defaultImage = '/og-dreambox.jpg'
 
-function upsertMeta(selector, attributes) {
-  let element = document.head.querySelector(selector)
-
-  if (!element) {
-    element = document.createElement('meta')
-    document.head.appendChild(element)
-  }
-
-  Object.entries(attributes).forEach(([key, value]) => {
-    element.setAttribute(key, value)
-  })
-}
-
-function upsertLink(selector, attributes) {
-  let element = document.head.querySelector(selector)
-
-  if (!element) {
-    element = document.createElement('link')
-    document.head.appendChild(element)
-  }
-
-  Object.entries(attributes).forEach(([key, value]) => {
-    element.setAttribute(key, value)
-  })
-}
-
 function Seo({ title, description, path = '/', image = defaultImage, schema }) {
-  useEffect(() => {
-    const origin = window.location.origin
-    const url = new URL(path, origin).href
-    const imageUrl = new URL(image, origin).href
-    const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`
+  const url = new URL(path, siteUrl).href
+  const imageUrl = new URL(image, siteUrl).href
+  const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`
+  const structuredData = schema
+    ? Array.isArray(schema)
+      ? schema
+      : [schema]
+    : [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: siteName,
+          url: siteUrl,
+          description,
+          inLanguage: 'fr-FR',
+        },
+      ]
 
-    document.title = fullTitle
+  return (
+    <Helmet>
+      <title>{fullTitle}</title>
+      <meta name="description" content={description} />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={url} />
 
-    upsertMeta('meta[name="description"]', { name: 'description', content: description })
-    upsertMeta('meta[name="robots"]', { name: 'robots', content: 'index, follow' })
-    upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' })
-    upsertMeta('meta[property="og:locale"]', { property: 'og:locale', content: 'fr_FR' })
-    upsertMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: siteName })
-    upsertMeta('meta[property="og:title"]', { property: 'og:title', content: fullTitle })
-    upsertMeta('meta[property="og:description"]', {
-      property: 'og:description',
-      content: description,
-    })
-    upsertMeta('meta[property="og:url"]', { property: 'og:url', content: url })
-    upsertMeta('meta[property="og:image"]', { property: 'og:image', content: imageUrl })
-    upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' })
-    upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: fullTitle })
-    upsertMeta('meta[name="twitter:description"]', {
-      name: 'twitter:description',
-      content: description,
-    })
-    upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: imageUrl })
-    upsertLink('link[rel="canonical"]', { rel: 'canonical', href: url })
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="fr_FR" />
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={imageUrl} />
 
-    const schemaNodeId = 'dreambox-structured-data'
-    let schemaNode = document.getElementById(schemaNodeId)
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={imageUrl} />
 
-    if (!schemaNode) {
-      schemaNode = document.createElement('script')
-      schemaNode.id = schemaNodeId
-      schemaNode.type = 'application/ld+json'
-      document.head.appendChild(schemaNode)
-    }
-
-    schemaNode.textContent = JSON.stringify(
-      schema ?? {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: siteName,
-        url: origin,
-        description,
-        inLanguage: 'fr-FR',
-      },
-    )
-  }, [description, image, path, schema, title])
-
-  return null
+      {structuredData.map((data, index) => (
+        <script type="application/ld+json" key={`${data['@type']}-${index}`}>
+          {JSON.stringify(data)}
+        </script>
+      ))}
+    </Helmet>
+  )
 }
 
 export default Seo

@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import About from './pages/About'
+import BoxCadeauPersonnaliseePage from './pages/BoxCadeauPersonnaliseePage'
 import Collections from './pages/Collections'
 import CreateBox from './pages/CreateBox'
 import Home from './pages/Home'
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/box-cadeau-personnalisee" element={<BoxCadeauPersonnaliseePage />} />
         <Route path="/collections" element={<Collections />} />
         <Route path="/personnalisation" element={<Personalisation />} />
         <Route path="/a-propos" element={<About />} />
