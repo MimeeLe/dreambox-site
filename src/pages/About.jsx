@@ -1,3 +1,4 @@
+import { Feather, HeartHandshake, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import aproposImage from '../assets/apropos-image-optimized.jpg'
 import Seo from '../components/Seo'
@@ -6,14 +7,17 @@ const values = [
   {
     title: 'Le soin du détail',
     text: 'Couleurs, ambiance, message, goûts, budget : les petits éléments changent la façon dont un cadeau est reçu.',
+    icon: Sparkles,
   },
   {
     title: 'La personnalisation',
     text: 'Une box surprise personnalisée doit raconter quelque chose de la personne, pas seulement suivre une tendance.',
+    icon: Feather,
   },
   {
     title: 'La simplicité',
     text: 'Vous partagez les informations importantes, Dreambox vous aide à transformer l’idée en cadeau prêt à offrir.',
+    icon: HeartHandshake,
   },
 ]
 
@@ -35,14 +39,29 @@ function About() {
         schema={aboutSchema}
       />
 
-      <section className="container about-hero">
-        <p className="section-kicker">À propos</p>
-        <h1>Dreambox, la box cadeau pensée pour les attentions qui comptent</h1>
-        <p>
-          Dreambox crée des box surprises personnalisées pour celles et ceux qui
-          veulent offrir un cadeau original, sans choisir quelque chose
-          d’impersonnel.
-        </p>
+      <section className="container about-hero page-visual-hero">
+        <div className="page-hero-copy">
+          <p className="section-kicker">À propos</p>
+          <h1>Dreambox, la box cadeau pensée pour les attentions qui comptent</h1>
+          <p>
+            Dreambox crée des box surprises personnalisées pour celles et ceux qui
+            veulent offrir un cadeau original, sans choisir quelque chose
+            d’impersonnel.
+          </p>
+        </div>
+
+        <div className="page-hero-visual">
+          <img
+            src={aproposImage}
+            alt="Composition Dreambox illustrant une box cadeau attentionnée"
+            width="1254"
+            height="1254"
+            decoding="async"
+            fetchPriority="high"
+            className="page-hero-image"
+          />
+          <span className="page-hero-badge">Une attention plus personnelle</span>
+        </div>
       </section>
 
       <section className="container about-story">
@@ -125,6 +144,9 @@ function About() {
         <div className="about-values-grid">
           {values.map((value) => (
             <article className="info-card" key={value.title}>
+              <span className="card-icon compact" aria-hidden="true">
+                <value.icon size={18} />
+              </span>
               <h3>{value.title}</h3>
               <p>{value.text}</p>
             </article>

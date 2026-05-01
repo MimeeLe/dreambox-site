@@ -1,3 +1,4 @@
+import { Camera } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import dreamboxLogo from '../assets/logo-dreambox.jpg'
 
@@ -43,6 +44,7 @@ function Header() {
             rel="noreferrer"
             className="instagram-cta"
           >
+            <Camera size={16} aria-hidden="true" />
             Instagram
           </a>
         </nav>

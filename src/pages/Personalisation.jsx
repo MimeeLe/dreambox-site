@@ -1,30 +1,45 @@
+import {
+  CalendarHeart,
+  Gift,
+  MessageCircleHeart,
+  Palette,
+  SlidersHorizontal,
+  UserRound,
+} from 'lucide-react'
 import { Link } from 'react-router-dom'
+import personalisationHero from '../assets/collection-sur-mesure-optimized.jpg'
 import Seo from '../components/Seo'
 
 const customDetails = [
   {
     title: 'La personne à gâter',
     text: 'Précisez ses goûts, son âge, son style, ses passions, ses habitudes ou ce qu’il vaut mieux éviter.',
+    icon: UserRound,
   },
   {
     title: 'L’occasion',
     text: 'Anniversaire, mariage, couple, meilleure amie, remerciement, fête ou surprise romantique : le contexte guide la création.',
+    icon: CalendarHeart,
   },
   {
     title: 'L’univers souhaité',
     text: 'Doux, romantique, gourmand, kawaii, élégant, drôle, symbolique ou sur-mesure : vous choisissez la direction qui lui ressemble.',
+    icon: Palette,
   },
   {
     title: 'Le budget',
     text: 'Indiquez une enveloppe pour aider Dreambox à composer une box cohérente, jolie et adaptée à votre demande.',
+    icon: SlidersHorizontal,
   },
   {
     title: 'Le message personnel',
     text: 'Un mot, une attention ou un détail symbolique peut renforcer l’effet cadeau et rendre la surprise plus intime.',
+    icon: MessageCircleHeart,
   },
   {
     title: 'Le niveau de surprise',
     text: 'Vous pouvez donner beaucoup de détails ou laisser Dreambox imaginer davantage à partir de quelques indications clés.',
+    icon: Gift,
   },
 ]
 
@@ -79,14 +94,29 @@ function Personalisation() {
         schema={personalisationSchema}
       />
 
-      <section className="container personalisation-hero">
-        <p className="section-kicker">Personnalisation</p>
-        <h1>Personnalisez votre Dreambox dans les moindres détails</h1>
-        <p>
-          Cette page vous aide à comprendre les éléments que vous pouvez
-          préciser avant de créer votre box : la personne à gâter, l’occasion,
-          l’univers, le budget, le message et le niveau de surprise souhaité.
-        </p>
+      <section className="container personalisation-hero page-visual-hero">
+        <div className="page-hero-copy">
+          <p className="section-kicker">Personnalisation</p>
+          <h1>Personnalisez votre Dreambox dans les moindres détails</h1>
+          <p>
+            Cette page vous aide à comprendre les éléments que vous pouvez
+            préciser avant de créer votre box : la personne à gâter, l’occasion,
+            l’univers, le budget, le message et le niveau de surprise souhaité.
+          </p>
+        </div>
+
+        <div className="page-hero-visual">
+          <img
+            src={personalisationHero}
+            alt="Box Dreambox sur-mesure à personnaliser selon la personne"
+            width="1448"
+            height="1086"
+            decoding="async"
+            fetchPriority="high"
+            className="page-hero-image"
+          />
+          <span className="page-hero-badge">Détails, budget, message</span>
+        </div>
       </section>
 
       <section className="personalisation-band">
@@ -104,6 +134,9 @@ function Personalisation() {
           <div className="options-list practical-options-list">
             {customDetails.map((detail) => (
               <article key={detail.title}>
+                <span className="card-icon compact" aria-hidden="true">
+                  <detail.icon size={18} />
+                </span>
                 <h3>{detail.title}</h3>
                 <p>{detail.text}</p>
               </article>

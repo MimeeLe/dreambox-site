@@ -1,3 +1,4 @@
+import { Camera } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const instagramUrl = 'https://www.instagram.com/dreambox_fr/'
@@ -23,6 +24,7 @@ function Footer() {
             rel="noreferrer"
             className="footer-instagram-cta"
           >
+            <Camera size={16} aria-hidden="true" />
             Instagram
           </a>
         </nav>

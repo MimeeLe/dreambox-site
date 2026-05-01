@@ -1,3 +1,11 @@
+import {
+  CakeSlice,
+  Candy,
+  Heart,
+  HeartHandshake,
+  Sparkles,
+  WandSparkles,
+} from 'lucide-react'
 import { Link } from 'react-router-dom'
 import collectionBestFriend from '../assets/collection-best-friend-optimized.jpg'
 import collectionCouple from '../assets/collection-couple-optimized.jpg'
@@ -15,6 +23,7 @@ const collections = [
       'Une box pensée pour un conjoint, une relation naissante ou une date symbolique. Elle crée une ambiance douce, intime ou romantique, idéale pour un anniversaire de couple, la Saint-Valentin ou une attention spontanée.',
     image: collectionCouple,
     alt: 'Collection Dreambox pour cadeau de couple',
+    icon: Heart,
   },
   {
     title: 'Best Friend',
@@ -22,6 +31,7 @@ const collections = [
       'Une box cadeau pour une meilleure amie, une sœur de cœur ou une personne très proche. Elle mise sur les souvenirs, les clins d’œil et les détails qui font sourire, parfaite pour un anniversaire ou un remerciement.',
     image: collectionBestFriend,
     alt: 'Collection Dreambox pour meilleure amie',
+    icon: HeartHandshake,
   },
   {
     title: 'Mariage',
@@ -29,6 +39,7 @@ const collections = [
       'Une idée cadeau personnalisée pour des mariés, une demande témoin ou un EVJF. L’univers peut être élégant, symbolique ou festif pour accompagner un moment important sans tomber dans le cadeau attendu.',
     image: collectionMariage,
     alt: 'Collection Dreambox pour cadeau de mariage',
+    icon: Sparkles,
   },
   {
     title: 'Gourmande',
@@ -36,6 +47,7 @@ const collections = [
       'Une box généreuse pour une personne qui aime les douceurs, les pauses réconfortantes et les petites attentions à savourer. Elle fonctionne très bien pour faire plaisir, remercier ou offrir un moment cocooning.',
     image: collectionGourmande,
     alt: 'Box surprise Dreambox dans un univers gourmand',
+    icon: Candy,
   },
   {
     title: 'Kawaii',
@@ -43,6 +55,7 @@ const collections = [
       'Une box tendre, colorée et joyeuse pour une personne qui aime les objets mignons, les détails délicats et les univers visuels marqués. Elle apporte une surprise légère, douce et pleine de bonne humeur.',
     image: collectionKawaii,
     alt: 'Collection Dreambox dans un univers kawaii',
+    icon: CakeSlice,
   },
   {
     title: 'Sur-mesure',
@@ -50,6 +63,7 @@ const collections = [
       'Une option idéale si vous avez une idée très précise ou, au contraire, besoin d’être guidé. Dreambox compose une box à partir de la personne, de l’occasion, de votre budget et de l’effet recherché.',
     image: collectionSurMesure,
     alt: 'Collection Dreambox pour box entièrement sur-mesure',
+    icon: WandSparkles,
   },
 ]
 
@@ -72,14 +86,29 @@ function Collections() {
         schema={collectionsSchema}
       />
 
-      <section className="container collections-hero">
-        <p className="section-kicker">Collections Dreambox</p>
-        <h1>Des univers de box cadeaux pour chaque occasion</h1>
-        <p>
-          Choisissez un univers pour guider votre demande : couple, meilleure
-          amie, mariage, gourmandise, kawaii ou création sur-mesure. Chaque box
-          reste personnalisée selon la personne, l’occasion et votre budget.
-        </p>
+      <section className="container collections-hero page-visual-hero">
+        <div className="page-hero-copy">
+          <p className="section-kicker">Collections Dreambox</p>
+          <h1>Des univers de box cadeaux pour chaque occasion</h1>
+          <p>
+            Choisissez un univers pour guider votre demande : couple, meilleure
+            amie, mariage, gourmandise, kawaii ou création sur-mesure. Chaque box
+            reste personnalisée selon la personne, l’occasion et votre budget.
+          </p>
+        </div>
+
+        <div className="page-hero-visual">
+          <img
+            src={collectionSurMesure}
+            alt="Collection Dreambox sur-mesure pour imaginer une box cadeau"
+            width="1448"
+            height="1086"
+            decoding="async"
+            fetchPriority="high"
+            className="page-hero-image"
+          />
+          <span className="page-hero-badge">Univers sur-mesure</span>
+        </div>
       </section>
 
       <section className="container seo-content-section collections-intro">
@@ -118,6 +147,9 @@ function Collections() {
                 />
               </div>
               <div>
+                <span className="card-icon compact" aria-hidden="true">
+                  <collection.icon size={18} />
+                </span>
                 <h2>{collection.title}</h2>
                 <p>{collection.description}</p>
               </div>

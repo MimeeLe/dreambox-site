@@ -1,3 +1,16 @@
+import {
+  BookOpen,
+  CalendarHeart,
+  Compass,
+  Gift,
+  HeartHandshake,
+  LockKeyhole,
+  PackageCheck,
+  Send,
+  SlidersHorizontal,
+  Sparkles,
+  WandSparkles,
+} from 'lucide-react'
 import { Link } from 'react-router-dom'
 import collectionCelebrer from '../assets/collection-celebrer-optimized.jpg'
 import collectionFairePlaisir from '../assets/collection-faire-plaisir-optimized.jpg'
@@ -9,14 +22,17 @@ const steps = [
   {
     title: 'Vous nous racontez le cadeau',
     text: 'Indiquez l’occasion, la personne à gâter, votre budget et les détails importants : goûts, couleurs, message, ambiance.',
+    icon: Gift,
   },
   {
     title: 'Dreambox prépare une sélection sur-mesure',
     text: 'Nous imaginons une box cadeau cohérente avec votre demande, sans formule toute faite ni cadeau choisi au hasard.',
+    icon: WandSparkles,
   },
   {
     title: 'Vous offrez une vraie surprise',
     text: 'La box est pensée pour créer un moment personnel, que ce soit pour un anniversaire, un mariage, une amie ou une attention de couple.',
+    icon: PackageCheck,
   },
 ]
 
@@ -26,18 +42,21 @@ const collections = [
     text: 'Une box cadeau pour marquer un anniversaire, un mariage, une réussite ou une date importante.',
     image: collectionCelebrer,
     alt: 'Box Dreambox pour célébrer un anniversaire ou un moment important',
+    icon: CalendarHeart,
   },
   {
     title: 'Pour remercier',
     text: 'Un cadeau personnalisé pour dire merci avec plus de chaleur qu’un message classique.',
     image: collectionRemercier,
     alt: 'Box Dreambox pour offrir un remerciement attentionné',
+    icon: HeartHandshake,
   },
   {
     title: 'Pour faire plaisir',
     text: 'Une box surprise pour une amie, un proche ou une personne qui mérite une attention particulière.',
     image: collectionFairePlaisir,
     alt: 'Box surprise Dreambox pour faire plaisir à un proche',
+    icon: Sparkles,
   },
 ]
 
@@ -45,24 +64,51 @@ const reasons = [
   {
     title: 'Un cadeau plus personnel',
     text: 'Dreambox imagine une box surprise personnalisée à partir de la personne, de l’occasion et de l’attention que vous souhaitez offrir.',
+    icon: HeartHandshake,
   },
   {
     title: 'Une box adaptée à votre budget',
     text: 'Vous indiquez une fourchette, et nous créons une sélection cohérente, soignée et adaptée à votre demande.',
+    icon: SlidersHorizontal,
   },
   {
     title: 'Une attention pensée pour être offerte',
     text: 'Chaque box cadeau est conçue pour être belle à découvrir, agréable à recevoir et facile à offrir.',
+    icon: Gift,
   },
 ]
 
 const occasions = [
-  'Anniversaire',
-  'Mariage',
-  'Couple',
-  'Meilleure amie',
-  'Remerciement',
-  'Surprise romantique',
+  {
+    title: 'Anniversaire',
+    text: 'Une surprise pensée autour de son âge, de ses goûts et du moment à célébrer.',
+    icon: CalendarHeart,
+  },
+  {
+    title: 'Mariage',
+    text: 'Une attention élégante pour des mariés, une demande témoin ou un grand jour.',
+    icon: Sparkles,
+  },
+  {
+    title: 'Couple',
+    text: 'Un univers doux ou romantique pour marquer une date qui compte.',
+    icon: HeartHandshake,
+  },
+  {
+    title: 'Meilleure amie',
+    text: 'Des clins d’œil, des souvenirs et des détails qui parlent à votre relation.',
+    icon: Gift,
+  },
+  {
+    title: 'Remerciement',
+    text: 'Une façon plus chaleureuse de dire merci avec une vraie attention.',
+    icon: PackageCheck,
+  },
+  {
+    title: 'Surprise romantique',
+    text: 'Une box tendre et personnelle pour créer un moment à deux.',
+    icon: WandSparkles,
+  },
 ]
 
 const internalLinks = [
@@ -70,21 +116,25 @@ const internalLinks = [
     title: 'Explorer les collections',
     text: 'Trouvez un univers pour guider votre demande.',
     path: '/collections',
+    icon: Compass,
   },
   {
     title: 'Comprendre la personnalisation',
     text: 'Découvrez les détails que vous pouvez préciser.',
     path: '/personnalisation',
+    icon: SlidersHorizontal,
   },
   {
     title: 'Lire le guide cadeau',
     text: 'Voir pourquoi une box personnalisée est une bonne idée.',
     path: '/box-cadeau-personnalisee',
+    icon: BookOpen,
   },
   {
     title: 'Créer votre box',
     text: 'Passez à l’action avec le formulaire Dreambox.',
     path: '/creer-ma-box',
+    icon: Send,
   },
 ]
 
@@ -144,6 +194,33 @@ function Home() {
         </div>
       </section>
 
+      <section className="container blindbox-concept-section">
+        <div className="blindbox-concept-card">
+          <span className="card-icon" aria-hidden="true">
+            <LockKeyhole size={20} />
+          </span>
+          <div>
+            <p className="section-kicker">Le concept blindbox</p>
+            <h2>Une même ambiance, plusieurs surprises à découvrir</h2>
+            <p>
+              Dreambox reprend le principe de la blindbox : vous choisissez un
+              univers, une occasion et un budget, mais le contenu exact de
+              chaque box reste secret jusqu’à l’ouverture.
+            </p>
+            <p>
+              L’idée est simple : plusieurs box peuvent être créées autour d’un
+              même thème, tout en contenant des variations différentes. Chaque
+              personne reçoit ainsi un cadeau cohérent avec l’ambiance choisie,
+              mais avec sa propre surprise à découvrir.
+            </p>
+            <p>
+              Ce n’est pas un cadeau totalement au hasard : c’est une surprise
+              pensée, préparée et guidée par vos envies.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="container home-section">
         <div className="section-heading">
           <p className="section-kicker">Comment ça marche</p>
@@ -153,6 +230,9 @@ function Home() {
         <div className="steps-grid">
           {steps.map((step, index) => (
             <article className="info-card" key={step.title}>
+              <span className="card-icon" aria-hidden="true">
+                <step.icon size={20} />
+              </span>
               <span className="card-number">0{index + 1}</span>
               <h3>{step.title}</h3>
               <p>{step.text}</p>
@@ -188,6 +268,9 @@ function Home() {
                   />
                 </div>
                 <div className="collection-card-copy">
+                  <span className="card-icon compact" aria-hidden="true">
+                    <collection.icon size={18} />
+                  </span>
                   <h3>{collection.title}</h3>
                   <p>{collection.text}</p>
                 </div>
@@ -230,7 +313,12 @@ function Home() {
         <div className="why-list">
           {reasons.map((reason) => (
             <article key={reason.title}>
-              <h3>{reason.title}</h3>
+              <h3>
+                <span className="inline-icon" aria-hidden="true">
+                  <reason.icon size={18} />
+                </span>
+                {reason.title}
+              </h3>
               <p>{reason.text}</p>
             </article>
           ))}
@@ -238,8 +326,8 @@ function Home() {
       </section>
 
       <section className="home-section occasions-home-section">
-        <div className="container seo-split">
-          <div>
+        <div className="container occasions-home-layout">
+          <div className="occasions-home-copy">
             <p className="section-kicker">Occasions</p>
             <h2>Pour quelles occasions offrir une Dreambox ?</h2>
             <p>
@@ -247,13 +335,22 @@ function Home() {
               attentions du quotidien, dès que vous voulez offrir une surprise
               plus personnelle qu’un cadeau classique.
             </p>
+            <Link to="/creer-ma-box" className="text-link">
+              Créer une box pour votre occasion
+            </Link>
           </div>
 
-          <ul className="seo-pill-list" aria-label="Occasions pour offrir une Dreambox">
+          <div className="occasion-card-grid" aria-label="Occasions pour offrir une Dreambox">
             {occasions.map((occasion) => (
-              <li key={occasion}>{occasion}</li>
+              <article className="occasion-card" key={occasion.title}>
+                <span className="card-icon compact" aria-hidden="true">
+                  <occasion.icon size={18} />
+                </span>
+                <h3>{occasion.title}</h3>
+                <p>{occasion.text}</p>
+              </article>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
@@ -266,6 +363,9 @@ function Home() {
         <div className="internal-link-grid">
           {internalLinks.map((link) => (
             <Link to={link.path} className="internal-link-card" key={link.path}>
+              <span className="card-icon compact" aria-hidden="true">
+                <link.icon size={18} />
+              </span>
               <h3>{link.title}</h3>
               <p>{link.text}</p>
             </Link>

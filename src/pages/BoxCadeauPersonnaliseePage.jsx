@@ -1,3 +1,4 @@
+import { CalendarHeart, Gift, Heart, HeartHandshake, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
 
@@ -36,22 +37,27 @@ const intentions = [
   {
     title: 'Faire plaisir à une meilleure amie',
     text: 'Une box peut réunir des clins d’œil, des souvenirs et de petites attentions qui parlent à votre relation.',
+    icon: HeartHandshake,
   },
   {
     title: 'Marquer un anniversaire',
     text: 'L’occasion permet de créer une surprise plus personnelle, adaptée à l’âge, au style et aux envies de la personne.',
+    icon: Gift,
   },
   {
     title: 'Offrir une surprise romantique',
     text: 'L’univers peut devenir plus doux, symbolique ou intime pour célébrer une relation ou une date importante.',
+    icon: Heart,
   },
   {
     title: 'Remercier quelqu’un',
     text: 'Une Dreambox peut exprimer la gratitude avec plus de chaleur qu’un message ou un cadeau standard.',
+    icon: Sparkles,
   },
   {
     title: 'Célébrer un mariage',
     text: 'La box peut accompagner des mariés, une demande témoin ou un moment autour du grand jour.',
+    icon: CalendarHeart,
   },
 ]
 
@@ -235,6 +241,9 @@ function BoxCadeauPersonnaliseePage() {
         <div className="seo-feature-grid intentions-grid">
           {intentions.map((intention) => (
             <article key={intention.title}>
+              <span className="card-icon compact" aria-hidden="true">
+                <intention.icon size={18} />
+              </span>
               <h3>{intention.title}</h3>
               <p>{intention.text}</p>
             </article>

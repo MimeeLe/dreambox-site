@@ -1,3 +1,5 @@
+import { useForm, ValidationError } from '@formspree/react'
+import { Send } from 'lucide-react'
 import Seo from '../components/Seo'
 
 const formFaq = [
@@ -46,9 +48,7 @@ const createBoxSchema = [
 ]
 
 function CreateBox() {
-  function handleSubmit(event) {
-    event.preventDefault()
-  }
+  const [state, handleSubmit] = useForm('xnjwqkyw')
 
   return (
     <main className="page-section create-box-page">
@@ -76,118 +76,145 @@ function CreateBox() {
           </p>
         </section>
 
-        <form className="dreambox-form" onSubmit={handleSubmit}>
-          <div className="form-grid">
-            <label className="form-field">
-              <span>Prénom</span>
-              <input type="text" name="firstName" placeholder="Votre prénom" />
-            </label>
-
-            <label className="form-field">
-              <span>Email</span>
-              <input type="email" name="email" placeholder="votre@email.com" />
-            </label>
-
-            <label className="form-field">
-              <span>Occasion</span>
-              <input
-                type="text"
-                name="occasion"
-                placeholder="Anniversaire, mariage, remerciement, Saint-Valentin..."
-              />
-              <small>Indiquez le contexte pour guider l’ambiance de la box.</small>
-            </label>
-
-            <label className="form-field">
-              <span>Pour qui est la box ?</span>
-              <input
-                type="text"
-                name="recipient"
-                placeholder="Ma meilleure amie, mon conjoint, ma sœur, une collègue..."
-              />
-            </label>
-
-            <label className="form-field">
-              <span>Taille souhaitée</span>
-              <select name="boxSize" defaultValue="">
-                <option value="" disabled>
-                  Choisir une taille
-                </option>
-                <option value="petite">Petite attention</option>
-                <option value="classique">Box cadeau classique</option>
-                <option value="grande">Grande box surprise</option>
-                <option value="indecise">Je ne sais pas encore</option>
-              </select>
-            </label>
-
-            <label className="form-field">
-              <span>Univers préféré</span>
-              <select name="universe" defaultValue="">
-                <option value="" disabled>
-                  Choisir un univers
-                </option>
-                <option value="couple">Couple</option>
-                <option value="best-friend">Best Friend</option>
-                <option value="mariage">Mariage</option>
-                <option value="gourmande">Gourmande</option>
-                <option value="kawaii">Kawaii</option>
-                <option value="sur-mesure">Sur-mesure</option>
-                <option value="indecise">Je ne sais pas encore</option>
-              </select>
-              <small>Choisissez un univers ou laissez Dreambox proposer une direction.</small>
-            </label>
-
-            <label className="form-field">
-              <span>Ambiance souhaitée</span>
-              <input
-                type="text"
-                name="mood"
-                placeholder="Romantique, cocooning, festive, élégante, drôle..."
-              />
-            </label>
-
-            <label className="form-field">
-              <span>Budget indicatif</span>
-              <input type="text" name="budget" placeholder="Exemple : 40 à 60 €" />
-              <small>Une fourchette suffit pour adapter la sélection.</small>
-            </label>
-
-            <label className="form-field">
-              <span>Date souhaitée</span>
-              <input type="date" name="wantedDate" />
-            </label>
+        {state.succeeded ? (
+          <div className="dreambox-form form-status" role="status">
+            <h2>Merci, votre demande a bien été envoyée.</h2>
+            <p>
+              Dreambox reviendra vers vous par email pour affiner votre demande,
+              confirmer les détails et imaginer une box adaptée à votre budget.
+            </p>
           </div>
+        ) : (
+          <form className="dreambox-form" onSubmit={handleSubmit}>
+            <input type="hidden" name="_subject" value="Nouvelle demande Dreambox" />
+            <input type="hidden" name="source" value="Formulaire créer ma box" />
 
-          <label className="form-field full-width">
-            <span>Message personnalisé</span>
-            <textarea
-              name="personalMessage"
-              rows="4"
-              placeholder="Le message que vous aimeriez ajouter dans la box cadeau..."
-            />
-            <small>Vous pouvez écrire un message complet ou seulement l’intention à transmettre.</small>
-          </label>
+            <div className="form-grid">
+              <label className="form-field">
+                <span>Prénom</span>
+                <input type="text" name="firstName" placeholder="Votre prénom" autoComplete="given-name" />
+              </label>
 
-          <label className="form-field full-width">
-            <span>Détails importants</span>
-            <textarea
-              name="details"
-              rows="5"
-              placeholder="Ses goûts, couleurs préférées, allergies, choses à éviter, passions, souvenirs à rappeler..."
-            />
-            <small>Ajoutez tout ce qui peut rendre la box plus juste et plus personnelle.</small>
-          </label>
+              <label className="form-field">
+                <span>Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="votre@email.com"
+                  autoComplete="email"
+                  required
+                />
+                <ValidationError className="form-error" field="email" errors={state.errors} />
+              </label>
 
-          <button type="submit" className="button-primary form-submit">
-            Envoyer ma demande
-          </button>
+              <label className="form-field">
+                <span>Occasion</span>
+                <input
+                  type="text"
+                  name="occasion"
+                  placeholder="Anniversaire, mariage, remerciement, Saint-Valentin..."
+                  required
+                />
+                <small>Indiquez le contexte pour guider l’ambiance de la box.</small>
+                <ValidationError className="form-error" field="occasion" errors={state.errors} />
+              </label>
 
-          <p className="form-note">
-            L’envoi du formulaire ne valide pas encore une commande. Dreambox
-            vous recontactera pour affiner votre demande, confirmer les détails
-            et imaginer une box sur-mesure adaptée à votre budget.
-          </p>
-        </form>
+              <label className="form-field">
+                <span>Pour qui est la box ?</span>
+                <input
+                  type="text"
+                  name="recipient"
+                  placeholder="Ma meilleure amie, mon conjoint, ma sœur, une collègue..."
+                />
+              </label>
+
+              <label className="form-field">
+                <span>Taille souhaitée</span>
+                <select name="boxSize" defaultValue="">
+                  <option value="" disabled>
+                    Choisir une taille
+                  </option>
+                  <option value="petite">Petite attention</option>
+                  <option value="classique">Box cadeau classique</option>
+                  <option value="grande">Grande box surprise</option>
+                  <option value="indecise">Je ne sais pas encore</option>
+                </select>
+              </label>
+
+              <label className="form-field">
+                <span>Univers préféré</span>
+                <select name="universe" defaultValue="">
+                  <option value="" disabled>
+                    Choisir un univers
+                  </option>
+                  <option value="couple">Couple</option>
+                  <option value="best-friend">Best Friend</option>
+                  <option value="mariage">Mariage</option>
+                  <option value="gourmande">Gourmande</option>
+                  <option value="kawaii">Kawaii</option>
+                  <option value="sur-mesure">Sur-mesure</option>
+                  <option value="indecise">Je ne sais pas encore</option>
+                </select>
+                <small>Choisissez un univers ou laissez Dreambox proposer une direction.</small>
+              </label>
+
+              <label className="form-field">
+                <span>Ambiance souhaitée</span>
+                <input
+                  type="text"
+                  name="mood"
+                  placeholder="Romantique, cocooning, festive, élégante, drôle..."
+                />
+              </label>
+
+              <label className="form-field">
+                <span>Budget indicatif</span>
+                <input type="text" name="budget" placeholder="Exemple : 40 à 60 €" />
+                <small>Une fourchette suffit pour adapter la sélection.</small>
+              </label>
+
+              <label className="form-field form-field-date">
+                <span>Date souhaitée</span>
+                <input type="date" name="wantedDate" />
+              </label>
+            </div>
+
+            <label className="form-field full-width">
+              <span>Message personnalisé</span>
+              <textarea
+                name="personalMessage"
+                rows="4"
+                placeholder="Le message que vous aimeriez ajouter dans la box cadeau..."
+              />
+              <small>Vous pouvez écrire un message complet ou seulement l’intention à transmettre.</small>
+            </label>
+
+            <label className="form-field full-width">
+              <span>Détails importants</span>
+              <textarea
+                name="details"
+                rows="5"
+                placeholder="Ses goûts, couleurs préférées, allergies, choses à éviter, passions, souvenirs à rappeler..."
+                required
+              />
+              <small>Ajoutez tout ce qui peut rendre la box plus juste et plus personnelle.</small>
+              <ValidationError className="form-error" field="details" errors={state.errors} />
+            </label>
+
+            <ValidationError className="form-error form-error-global" errors={state.errors} />
+
+            <button type="submit" className="button-primary form-submit" disabled={state.submitting}>
+              <Send size={18} aria-hidden="true" />
+              {state.submitting ? 'Envoi en cours...' : 'Envoyer ma demande'}
+            </button>
+
+            <p className="form-note">
+              L’envoi du formulaire ne valide pas encore une commande. Dreambox
+              vous recontactera pour affiner votre demande, confirmer les détails
+              et imaginer une box sur-mesure adaptée à votre budget.
+            </p>
+          </form>
+        )}
       </div>
 
       <section className="container form-faq-section faq-section">
