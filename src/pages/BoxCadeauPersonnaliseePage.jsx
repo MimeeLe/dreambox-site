@@ -4,7 +4,7 @@ import Seo from '../components/Seo'
 
 const pageTitle = 'Box cadeau personnalisée sur-mesure | Dreambox'
 const pageDescription =
-  'Découvrez la box cadeau personnalisée Dreambox : une surprise sur-mesure imaginée selon la personnalité, l’occasion et l’univers de la personne à gâter.'
+  'Découvrez les box cadeaux personnalisées Dreambox : des surprises sur-mesure imaginées selon votre groupe, votre quantité et votre événement.'
 
 const occasions = [
   'anniversaire',
@@ -88,9 +88,9 @@ const faq = [
       'Une box classique suit souvent un thème fixe. Une Dreambox est pensée à partir de votre demande pour correspondre à une personne, une occasion et une intention précise.',
   },
   {
-    question: 'Comment créer ma box personnalisée ?',
+    question: 'Comment créer mes box personnalisées ?',
     answer:
-      'Il suffit de remplir le formulaire de création en décrivant la personne à gâter, l’occasion, le budget, l’univers souhaité et les détails importants.',
+      'Il suffit de remplir le formulaire de création en décrivant le groupe, le nombre de personnes, l’occasion, le budget, l’univers souhaité et les détails importants.',
   },
 ]
 
@@ -142,7 +142,7 @@ function BoxCadeauPersonnaliseePage() {
           à gâter.
         </p>
         <Link to="/creer-ma-box" className="button-primary">
-          Créer ma box personnalisée
+          Créer mes box personnalisées
         </Link>
       </section>
 
@@ -171,8 +171,8 @@ function BoxCadeauPersonnaliseePage() {
           <h2>Dreambox, coffret classique ou cadeau standard : quelle différence ?</h2>
           <p>
             Un cadeau classique repose souvent sur un seul objet. Un coffret
-            standard propose une sélection déjà définie. Dreambox part plutôt de
-            la personne à gâter pour imaginer une surprise qui correspond à son
+            standard propose une sélection déjà définie. Dreambox part plutôt du
+            groupe à gâter pour imaginer des surprises qui correspondent à son
             univers, à l’occasion et à votre intention.
           </p>
         </div>
@@ -334,9 +334,9 @@ function BoxCadeauPersonnaliseePage() {
 
       <section className="container final-cta seo-final-cta">
         <p className="section-kicker">Prêt à imaginer la surprise ?</p>
-        <h2>Créez une box cadeau personnalisée pensée pour la personne à gâter.</h2>
+        <h2>Créez des box cadeaux personnalisées pensées pour votre groupe.</h2>
         <Link to="/creer-ma-box" className="button-primary">
-          Créer ma box personnalisée
+          Créer mes box personnalisées
         </Link>
       </section>
     </main>

@@ -9,7 +9,7 @@ const navigationLinks = [
   { label: 'Collections', path: '/collections' },
   { label: 'Personnalisation', path: '/personnalisation' },
   { label: 'À propos', path: '/a-propos' },
-  { label: 'Créer ma box', path: '/creer-ma-box' },
+  { label: 'Créer mes box', path: '/creer-ma-box' },
 ]
 
 function Header() {

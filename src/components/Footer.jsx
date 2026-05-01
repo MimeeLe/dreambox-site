@@ -11,13 +11,13 @@ function Footer() {
           <Link to="/" className="footer-brand">
             Dreambox
           </Link>
-          <p>Des box cadeaux personnalisées pour offrir une vraie attention.</p>
+          <p>Des box cadeaux personnalisées pour groupes et événements.</p>
         </div>
 
         <nav className="footer-nav" aria-label="Navigation secondaire">
           <Link to="/collections">Collections</Link>
           <Link to="/personnalisation">Personnalisation</Link>
-          <Link to="/creer-ma-box">Créer ma box</Link>
+          <Link to="/creer-ma-box">Créer mes box</Link>
           <a
             href={instagramUrl}
             target="_blank"

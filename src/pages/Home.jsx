@@ -20,60 +20,60 @@ import Seo from '../components/Seo'
 
 const steps = [
   {
-    title: 'Vous nous racontez le cadeau',
-    text: 'Indiquez l’occasion, la personne à gâter, votre budget et les détails importants : goûts, couleurs, message, ambiance.',
+    title: 'Vous nous racontez l’événement',
+    text: 'Indiquez l’occasion, le nombre de personnes, votre budget et l’ambiance souhaitée pour vos box.',
     icon: Gift,
   },
   {
-    title: 'Dreambox prépare une sélection sur-mesure',
-    text: 'Nous imaginons une box cadeau cohérente avec votre demande, sans formule toute faite ni cadeau choisi au hasard.',
+    title: 'Dreambox prépare des box en quantité',
+    text: 'Nous imaginons une sélection cohérente pour votre groupe, avec une même ambiance et des variations à découvrir.',
     icon: WandSparkles,
   },
   {
-    title: 'Vous offrez une vraie surprise',
-    text: 'La box est pensée pour créer un moment personnel, que ce soit pour un anniversaire, un mariage, une amie ou une attention de couple.',
+    title: 'Vous offrez une surprise à partager',
+    text: 'Chaque invité ou participant reçoit une box pensée pour l’événement, à partir de 5 personnes.',
     icon: PackageCheck,
   },
 ]
 
 const collections = [
   {
-    title: 'Pour célébrer',
-    text: 'Une box cadeau pour marquer un anniversaire, un mariage, une réussite ou une date importante.',
+    title: 'Pour célébrer en groupe',
+    text: 'Des box cadeaux pour marquer un anniversaire, un mariage, une réussite ou une date importante avec plusieurs invités.',
     image: collectionCelebrer,
-    alt: 'Box Dreambox pour célébrer un anniversaire ou un moment important',
+    alt: 'Box Dreambox pour célébrer un anniversaire ou un moment important en groupe',
     icon: CalendarHeart,
   },
   {
-    title: 'Pour remercier',
-    text: 'Un cadeau personnalisé pour dire merci avec plus de chaleur qu’un message classique.',
+    title: 'Pour remercier une équipe',
+    text: 'Des attentions personnalisées pour remercier plusieurs personnes avec plus de chaleur qu’un message classique.',
     image: collectionRemercier,
-    alt: 'Box Dreambox pour offrir un remerciement attentionné',
+    alt: 'Box Dreambox pour offrir un remerciement attentionné à un groupe',
     icon: HeartHandshake,
   },
   {
-    title: 'Pour faire plaisir',
-    text: 'Une box surprise pour une amie, un proche ou une personne qui mérite une attention particulière.',
+    title: 'Pour faire plaisir à plusieurs',
+    text: 'Des box surprises pour un groupe d’amies, une famille, une équipe ou les invités d’un événement.',
     image: collectionFairePlaisir,
-    alt: 'Box surprise Dreambox pour faire plaisir à un proche',
+    alt: 'Box surprise Dreambox pour faire plaisir à plusieurs personnes',
     icon: Sparkles,
   },
 ]
 
 const reasons = [
   {
-    title: 'Un cadeau plus personnel',
-    text: 'Dreambox imagine une box surprise personnalisée à partir de la personne, de l’occasion et de l’attention que vous souhaitez offrir.',
+    title: 'Des cadeaux de groupe plus personnels',
+    text: 'Dreambox imagine des box surprises à partir de votre événement, du nombre de personnes et de l’attention que vous souhaitez offrir.',
     icon: HeartHandshake,
   },
   {
-    title: 'Une box adaptée à votre budget',
-    text: 'Vous indiquez une fourchette, et nous créons une sélection cohérente, soignée et adaptée à votre demande.',
+    title: 'Une quantité adaptée à votre budget',
+    text: 'Vous indiquez une fourchette et le nombre de box souhaitées, puis nous créons une sélection cohérente pour le groupe.',
     icon: SlidersHorizontal,
   },
   {
-    title: 'Une attention pensée pour être offerte',
-    text: 'Chaque box cadeau est conçue pour être belle à découvrir, agréable à recevoir et facile à offrir.',
+    title: 'Une attention pensée pour l’événement',
+    text: 'Chaque box est conçue pour être belle à découvrir, facile à distribuer et agréable à recevoir.',
     icon: Gift,
   },
 ]
@@ -81,32 +81,32 @@ const reasons = [
 const occasions = [
   {
     title: 'Anniversaire',
-    text: 'Une surprise pensée autour de son âge, de ses goûts et du moment à célébrer.',
+    text: 'Des box pour les invités, les proches ou un groupe réuni autour du moment à célébrer.',
     icon: CalendarHeart,
   },
   {
     title: 'Mariage',
-    text: 'Une attention élégante pour des mariés, une demande témoin ou un grand jour.',
+    text: 'Des attentions élégantes pour invités, témoins, EVJF ou souvenirs du grand jour.',
     icon: Sparkles,
   },
   {
-    title: 'Couple',
-    text: 'Un univers doux ou romantique pour marquer une date qui compte.',
+    title: 'Événement privé',
+    text: 'Un univers doux, festif ou symbolique pour un moment partagé à plusieurs.',
     icon: HeartHandshake,
   },
   {
-    title: 'Meilleure amie',
-    text: 'Des clins d’œil, des souvenirs et des détails qui parlent à votre relation.',
+    title: 'Groupe d’amies',
+    text: 'Des clins d’œil, des souvenirs et une ambiance commune pour un groupe soudé.',
     icon: Gift,
   },
   {
     title: 'Remerciement',
-    text: 'Une façon plus chaleureuse de dire merci avec une vraie attention.',
+    text: 'Une façon plus chaleureuse de remercier une équipe, des invités ou des proches.',
     icon: PackageCheck,
   },
   {
-    title: 'Surprise romantique',
-    text: 'Une box tendre et personnelle pour créer un moment à deux.',
+    title: 'Entreprise ou association',
+    text: 'Des box pour collaborateurs, partenaires, membres ou participants à un événement.',
     icon: WandSparkles,
   },
 ]
@@ -131,8 +131,8 @@ const internalLinks = [
     icon: BookOpen,
   },
   {
-    title: 'Créer votre box',
-    text: 'Passez à l’action avec le formulaire Dreambox.',
+    title: 'Créer vos box',
+    text: 'Passez à l’action avec le formulaire groupe Dreambox.',
     path: '/creer-ma-box',
     icon: Send,
   },
@@ -144,7 +144,7 @@ const homeSchema = [
     '@type': 'Organization',
     name: 'Dreambox',
     url: 'https://dreambox-blindbox.com/',
-    description: 'Dreambox crée des box cadeaux personnalisées et des surprises sur-mesure.',
+    description: 'Dreambox crée des box cadeaux personnalisées en quantité pour groupes et événements.',
     sameAs: ['https://www.instagram.com/dreambox_fr/'],
   },
   {
@@ -159,23 +159,23 @@ function Home() {
   return (
     <main className="home-page">
       <Seo
-        title="Dreambox | Box cadeau personnalisée et surprise sur-mesure"
-        description="Créez une box cadeau personnalisée avec Dreambox : une surprise sur-mesure, pensée selon la personnalité, l’occasion et l’univers de la personne à gâter."
+        title="Dreambox | Box cadeaux personnalisées pour groupes et événements"
+        description="Créez des box cadeaux personnalisées en quantité avec Dreambox : anniversaires, mariages, équipes, invités et événements à partir de 5 personnes."
         path="/"
         schema={homeSchema}
       />
 
       <section className="container hero-section home-hero">
         <div className="hero-copy">
-          <p className="section-kicker">Box surprises personnalisées</p>
-          <h1>La box surprise personnalisée pour offrir un cadeau vraiment unique</h1>
+          <p className="section-kicker">Box surprises personnalisées dès 5 personnes</p>
+          <h1>Des box cadeaux personnalisées pour groupes et événements</h1>
           <p>
-            Dreambox crée des box cadeaux personnalisées pour célébrer un
-            anniversaire, un mariage, une amitié, un couple ou toute occasion
-            spéciale.
+            Dreambox crée des box cadeaux personnalisées en quantité pour les
+            anniversaires, mariages, équipes, invités et événements privés ou
+            professionnels.
           </p>
           <Link to="/creer-ma-box" className="button-primary">
-            Créer ma box
+            Créer mes box
           </Link>
         </div>
 
@@ -203,15 +203,16 @@ function Home() {
             <p className="section-kicker">Le concept blindbox</p>
             <h2>Une même ambiance, plusieurs surprises à découvrir</h2>
             <p>
-              Dreambox reprend le principe de la blindbox : vous choisissez un
-              univers, une occasion et un budget, mais le contenu exact de
-              chaque box reste secret jusqu’à l’ouverture.
+              Dreambox reprend le principe de la blindbox pour les événements :
+              vous choisissez un univers, une occasion, une quantité et un
+              budget, mais le contenu exact de chaque box reste secret jusqu’à
+              l’ouverture.
             </p>
             <p>
               L’idée est simple : plusieurs box peuvent être créées autour d’un
               même thème, tout en contenant des variations différentes. Chaque
-              personne reçoit ainsi un cadeau cohérent avec l’ambiance choisie,
-              mais avec sa propre surprise à découvrir.
+              personne reçoit ainsi un cadeau cohérent avec l’ambiance de votre
+              événement, mais avec sa propre surprise à découvrir.
             </p>
             <p>
               Ce n’est pas un cadeau totalement au hasard : c’est une surprise
@@ -224,7 +225,7 @@ function Home() {
       <section className="container home-section">
         <div className="section-heading">
           <p className="section-kicker">Comment ça marche</p>
-          <h2>Comment créer votre box cadeau personnalisée ?</h2>
+          <h2>Comment créer vos box cadeaux personnalisées ?</h2>
         </div>
 
         <div className="steps-grid">
@@ -247,9 +248,9 @@ function Home() {
             <p className="section-kicker">Collections</p>
             <h2>Des idées de box pour trouver le bon univers</h2>
             <p>
-              Couple, mariage, amitié, gourmandise ou box sur-mesure : les
-              collections Dreambox vous aident à choisir une direction, puis
-              chaque box est personnalisée selon votre demande.
+              Mariage, anniversaire, groupe d’amies, équipe ou événement
+              sur-mesure : les collections Dreambox vous aident à choisir une
+              direction, puis les box sont adaptées à votre quantité.
             </p>
           </div>
 
@@ -284,16 +285,16 @@ function Home() {
         <div className="seo-link-card">
           <div>
             <p className="section-kicker">Guide cadeau</p>
-            <h2>Une box cadeau personnalisée, pensée pour faire vraiment plaisir</h2>
+            <h2>Des box cadeaux personnalisées, pensées pour faire plaisir à plusieurs</h2>
             <p>
-              Avec Dreambox, chaque box est imaginée autour d’une personne,
-              d’une occasion et d’un univers. Contrairement à un coffret cadeau
+              Avec Dreambox, vos box sont imaginées autour d’un événement,
+              d’un groupe et d’un univers. Contrairement à un coffret cadeau
               classique, l’idée n’est pas seulement d’offrir un objet, mais de
-              créer une surprise qui ressemble à la personne qui la reçoit.
+              créer une surprise cohérente pour chaque participant.
             </p>
           </div>
           <Link to="/box-cadeau-personnalisee" className="text-link">
-            En savoir plus sur la box cadeau personnalisée
+            En savoir plus sur les box cadeaux personnalisées
           </Link>
         </div>
       </section>
@@ -301,12 +302,12 @@ function Home() {
       <section className="container home-section why-section">
         <div className="section-heading">
           <p className="section-kicker">Pourquoi Dreambox</p>
-          <h2>Pourquoi choisir une box surprise personnalisée ?</h2>
+          <h2>Pourquoi choisir des box surprises personnalisées ?</h2>
           <p>
-            Dreambox imagine des box cadeaux personnalisées pour transformer une
-            attention en véritable moment de surprise. Chaque box est pensée
-            selon la personne, l’occasion, l’univers souhaité et le message à
-            transmettre.
+            Dreambox imagine des box cadeaux personnalisées pour transformer un
+            événement en véritable moment de surprise. Chaque série est pensée
+            selon le nombre de personnes, l’occasion, l’univers souhaité et le
+            message à transmettre.
           </p>
         </div>
 
@@ -329,14 +330,14 @@ function Home() {
         <div className="container occasions-home-layout">
           <div className="occasions-home-copy">
             <p className="section-kicker">Occasions</p>
-            <h2>Pour quelles occasions offrir une Dreambox ?</h2>
+            <h2>Pour quels événements offrir des Dreambox ?</h2>
             <p>
-              Une Dreambox accompagne les moments importants comme les petites
-              attentions du quotidien, dès que vous voulez offrir une surprise
-              plus personnelle qu’un cadeau classique.
+              Dreambox accompagne les moments où vous voulez offrir plusieurs
+              attentions cohérentes : au minimum 5 personnes, avec une ambiance
+              commune et une part de surprise pour chacune.
             </p>
             <Link to="/creer-ma-box" className="text-link">
-              Créer une box pour votre occasion
+              Créer des box pour votre événement
             </Link>
           </div>
 
@@ -374,10 +375,10 @@ function Home() {
       </section>
 
       <section className="container final-cta">
-        <p className="section-kicker">Vous avez une occasion en tête ?</p>
-        <h2>Créons une box sur-mesure pour la personne que vous voulez gâter.</h2>
+        <p className="section-kicker">Vous avez un événement en tête ?</p>
+        <h2>Créons des box sur-mesure pour votre groupe, dès 5 personnes.</h2>
         <Link to="/creer-ma-box" className="button-primary">
-          Créer ma box personnalisée
+          Créer mes box personnalisées
         </Link>
       </section>
     </main>

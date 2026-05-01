@@ -4,7 +4,7 @@ import {
   MessageCircleHeart,
   Palette,
   SlidersHorizontal,
-  UserRound,
+  UsersRound,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import personalisationHero from '../assets/collection-sur-mesure-optimized.jpg'
@@ -12,23 +12,23 @@ import Seo from '../components/Seo'
 
 const customDetails = [
   {
-    title: 'La personne à gâter',
-    text: 'Précisez ses goûts, son âge, son style, ses passions, ses habitudes ou ce qu’il vaut mieux éviter.',
-    icon: UserRound,
+    title: 'Le groupe à gâter',
+    text: 'Précisez le nombre de personnes, le profil du groupe, les goûts communs et ce qu’il vaut mieux éviter.',
+    icon: UsersRound,
   },
   {
     title: 'L’occasion',
-    text: 'Anniversaire, mariage, couple, meilleure amie, remerciement, fête ou surprise romantique : le contexte guide la création.',
+    text: 'Anniversaire, mariage, EVJF, équipe, invités, association ou événement privé : le contexte guide la création.',
     icon: CalendarHeart,
   },
   {
     title: 'L’univers souhaité',
-    text: 'Doux, romantique, gourmand, kawaii, élégant, drôle, symbolique ou sur-mesure : vous choisissez la direction qui lui ressemble.',
+    text: 'Doux, gourmand, kawaii, élégant, drôle, festif, symbolique ou sur-mesure : vous choisissez la direction du groupe.',
     icon: Palette,
   },
   {
     title: 'Le budget',
-    text: 'Indiquez une enveloppe pour aider Dreambox à composer une box cohérente, jolie et adaptée à votre demande.',
+    text: 'Indiquez une enveloppe par box ou globale pour aider Dreambox à composer une série cohérente.',
     icon: SlidersHorizontal,
   },
   {
@@ -88,8 +88,8 @@ function Personalisation() {
   return (
     <main className="page-section personalisation-page">
       <Seo
-        title="Personnalisation Dreambox | Créer une box cadeau sur-mesure"
-        description="Personnalisez votre Dreambox selon la personne, l’occasion, l’univers souhaité, le budget et le message à transmettre pour créer un cadeau vraiment unique."
+        title="Personnalisation Dreambox | Box cadeaux en groupe sur-mesure"
+        description="Personnalisez vos box Dreambox selon le groupe, l’occasion, la quantité, l’univers souhaité, le budget et le message à transmettre."
         path="/personnalisation"
         schema={personalisationSchema}
       />
@@ -97,18 +97,19 @@ function Personalisation() {
       <section className="container personalisation-hero page-visual-hero">
         <div className="page-hero-copy">
           <p className="section-kicker">Personnalisation</p>
-          <h1>Personnalisez votre Dreambox dans les moindres détails</h1>
+          <h1>Personnalisez vos Dreambox pour un groupe ou un événement</h1>
           <p>
             Cette page vous aide à comprendre les éléments que vous pouvez
-            préciser avant de créer votre box : la personne à gâter, l’occasion,
-            l’univers, le budget, le message et le niveau de surprise souhaité.
+            préciser avant de créer vos box : le nombre de personnes, le groupe,
+            l’occasion, l’univers, le budget, le message et le niveau de
+            surprise souhaité.
           </p>
         </div>
 
         <div className="page-hero-visual">
           <img
             src={personalisationHero}
-            alt="Box Dreambox sur-mesure à personnaliser selon la personne"
+            alt="Box Dreambox sur-mesure à personnaliser pour un groupe"
             width="1448"
             height="1086"
             decoding="async"
@@ -125,9 +126,9 @@ function Personalisation() {
             <p className="section-kicker">À personnaliser</p>
             <h2>Ce que vous pouvez personnaliser chez Dreambox</h2>
             <p>
-              Plus votre demande est précise, plus la box peut être ajustée.
+              Plus votre demande est précise, plus les box peuvent être ajustées.
               Mais vous pouvez aussi rester volontairement vague si vous voulez
-              laisser Dreambox imaginer une surprise.
+              laisser Dreambox imaginer une surprise cohérente pour le groupe.
             </p>
           </div>
 
@@ -176,10 +177,10 @@ function Personalisation() {
       </section>
 
       <section className="container personalisation-cta">
-        <p className="section-kicker">Prêt à personnaliser votre box ?</p>
-        <h2>Décrivez les détails importants, Dreambox vous aide à créer une surprise sur-mesure.</h2>
+        <p className="section-kicker">Prêt à personnaliser vos box ?</p>
+        <h2>Décrivez votre événement, Dreambox vous aide à créer une surprise sur-mesure dès 5 personnes.</h2>
         <Link to="/creer-ma-box" className="button-primary">
-          Créer ma box personnalisée
+          Créer mes box personnalisées
         </Link>
       </section>
     </main>
